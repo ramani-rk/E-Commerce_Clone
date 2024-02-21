@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%  block title %}
+       <title>Dummy Page</title>
+    {% endblock %}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet"/>
+
+<style>
+  *
+{
+    margin: 0;
+    font-family: Arial;
+    border:border-box;
+}
+.navbar
+{
+    min-height:60px;
+    background-color:black;
+    color: wihte;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+/* For NavBar Logo */
+.nav-logo
+{
+    height:70px;
+    width: 150px;
+}
+
+/* For Logo Image */
+.logo
+{
+    background-image: url("data:image/jpeg;base64,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");
+    background-size: cover;
+    height:70px;
+    width:100%;
+}
+
+.nvn
+{
+    border:2px soild transparent;
+}
+
+.nvn:hover
+{
+    border: 2px solid white ;
+}
+
+.add-first
+{
+    color:ghostwhite;
+    font-size: 0.90rem;
+    margin-left: 16px;
+}
+
+
+.add-icon
+{
+    display: flex;
+    align-items: center;
+    margin-top: -25px;
+}
+
+.nav-search
+{
+    display: flex;
+    background-color:rgb(159, 106, 6);
+    width: 620px;
+    height: 40px;
+    border-radius: 4px;
+}
+.search-select
+{
+    background-color: #f3f3f3;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+}
+.search-input
+{
+    width:100%;
+    font-size: 1rem;
+    border: none;
+}
+.search-icon
+{
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #0f1111;
+
+}
+.nav-search:hover
+{
+    border: 2px solid orange;
+}
+span
+{
+    font-size: 0.7rem;
+}
+.nav-second
+{
+    font-size:0.85rem;
+    font-weight: 700;
+}
+.nav-cart i
+{
+    font-size: 30px;
+}
+.nav-cart
+{
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.panel
+{
+    height: 40px;
+    background-color: #222f3d;
+    display: flex;
+    color: ghostwhite;
+    align-items: center;
+    /* justify-content: space-between; */
+
+}
+.panel-ops a{
+    display: inline;
+    margin-left: 15px;
+}
+.panel-ops
+{
+    width: 70%;
+    font-size: 0.85rem;
+}
+.panel-deals
+{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+.nav-link
+{
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+    <header cellp>
+        <!-- This is create NavBar -->
+        <div class="navbar">
+
+            <!-- Amazon Logo -->
+            <div class="nav-logo nvn">
+                <div class="logo"></div>
+            </div>
+
+            <!-- Select Address -->
+            <div class="nav-address nvn ">
+                <h5 class="add-first">Select your address</h5>
+                 <div class="add-icon">
+                     <i class="fa-solid fa-location-dot" style="color: ghostwhite;"></i>
+                 </div>
+            </div>
+
+            <!-- Searching Product Bar -->
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+
+                <input placeholder="Search Product" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass" style="color: ghostwhite;" ></i>
+                </div>
+            </div>
+
+            <!-- Sign-Option  -->
+            <div class="nav-signin nvn">
+                <h6><span style="color: ghostwhite;">Sign-In</span></h6>
+                <h5 class="nav-second" style="color: ghostwhite;"> Account $ Lists</h5>
+            </div>
+
+            <!-- Return & Order the Products -->
+            <div class="nav-nvn nvn">
+                <h6><span style="color: ghostwhite;">Returns</span></h6>
+                <h5  style="color: ghostwhite;">& Orders</h5>
+            </div>
+
+            <!-- Cart Option -->
+            <div class="nav-cart nvn" style="color: ghostwhite;">
+                <i class="fa-solid fa-cart-shopping" style="color: ghostwhite;"></i>Cart
+            </div> 
+        </div>
+
+
+        <!-- Creating Panel (Downside NavBar) -->
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+
+        
+            <div class="panel-ops">
+                <a href=""class="nav-link text-white nvn">𝐀𝐝𝐦𝐢𝐧𝐏𝐚𝐠𝐞</a>
+                <a href=""class="nav-link text-white nvn" >𝐇𝐨𝐦𝐞</a>
+
+                <!-- Here We want to write if-->
+                    <a href=""  style="color: ghostwhite;" class="nvn">𝐀𝐦𝐚𝐳𝐨𝐧 𝐦𝐢𝐧𝐢 𝐓𝐕</a>
+                    <a href="" style="color: ghostwhite;" class="nvn">𝐓𝐨𝐝𝐚𝐲'𝐬 𝐃𝐞𝐚𝐥𝐬</a>
+                    <a href=""class="nav-link text-white nvn">𝐌𝐨𝐛𝐢𝐥𝐞</a>
+                    <a class="dropdown-item" href="">𝐄𝐥𝐞𝐜𝐭𝐫𝐨𝐧𝐢𝐜𝐬</a>
+                    <a href="" class="nav-link">𝐏𝐫𝐨𝐟𝐢𝐥𝐞</a>
+                    <a class="dropdown-item" href="">𝐂𝐡𝐚𝐧𝐠𝐞_𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝</a>
+                    <a class="dropdown-item" href="" class="nvn">𝐋𝐨𝐠𝐨𝐮𝐭</a>
+                <!-- Here We want to write else-->
+                
+                    <a class="dropdown-item" href="">𝐋𝐨𝐠𝐢𝐧</a>
+                    <a href=""class="nav-link text-white nvn">𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧 </a>
+                    
+                <!-- Here We want to write endif-->
+        </div>
+    </header>
+    
+     <!-- MDB -->
+    <script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js">
+    </script>
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>
