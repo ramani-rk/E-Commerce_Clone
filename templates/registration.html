@@ -1,112 +1,98 @@
 {% extends 'dummy.html' %}
 {% load static %}
 {% block title %}
-    <title>Registration Page</title>
+<title>Registration Page</title>
 {% endblock %}
 
 
 {% block body_block %}
 
 <style>
+    body 
+    {
+        background-image: url("{% static 'images/dark.gif' %}"  );
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
-*
-{
-    background-image: ("{% static 'images/background.jpg' %}" );
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    form {
+        margin-top: 50px;
 
-form
-{
-    margin-top: 50px;
-         
-}
+    }
 
-     .one
-     {
-   
-         color: white;
-         font-size: medium;
-         width: 950px;
-         border-radius: 2%;
-         font-weight: bold;
-     
-         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-         border-top-left-radius: 10px;
-         border-top-right-radius: 10px;
-         margin-top:-100px;
-     }
+    .one {
 
-     textarea
-     {
-         border-radius: 80px;
-         height: 10px;
-     }
+        color: white;
+        font-size: medium;
+        width: 950px;
+        border-radius: 2%;
+        font-weight: bold;
 
-     input
-     {
-         background-color: lightgrey;
-         border-radius: 5%;
-         margin-top: 10px;
-     
-     }
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-top: -100px;
+    }
 
-     input
-     {
-         color: rgb;
-         border-radius: 1%;
-     }
+    textarea {
+        border-radius: 80px;
+        height: 10px;
+    }
 
-     textarea
-     {
-         width: 200px;
-         height: 100px;
-     }
+    input {
+        background-color: lightgrey;
+        border-radius: 5%;
+        margin-top: 10px;
 
-     .div
-     {
-         margin-top: 100px;
-         
-         width: 600px;
-         height: 500px;
-         border-radius: 5%;
-     }
- 
-     .lion>a
-     {
-         justify-content: center;
-         padding: 20px;
-     }
+    }
 
-     .lion>a:hover
-     {
-         color:rgb(185, 255, 23);
-         width: 150px;
-         height: 100px;
-     }
+    input {
+        color: rgb;
+        border-radius: 1%;
+    }
 
-     h1
-     {
-         font-size: larger;
-         font-weight: bolder;
-         font-style: normal;
-         font-size: 40px;
-         color: rgb(11, 168, 182);
-         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     }
+    textarea {
+        width: 200px;
+        height: 100px;
+    }
 
-     .lion
-     {
-         position: relative;
-         top:350px;
-     }
+    .div {
+        margin-top: 100px;
 
-     .link
-     {
-         position: relative;
-         top:355px;
-     }
+        width: 600px;
+        height: 500px;
+        border-radius: 5%;
+    }
 
+    .lion>a {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .lion>a:hover {
+        color: rgb(185, 255, 23);
+        width: 150px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: larger;
+        font-weight: bolder;
+        font-style: normal;
+        font-size: 40px;
+        color: rgb(11, 168, 182);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .lion {
+        position: relative;
+        top: 350px;
+    }
+
+    .link {
+        position: relative;
+        top: 355px;
+    }
 </style>
 
 <body>
@@ -118,37 +104,38 @@ form
 
                 <div class="div">
                     <table class="nvn">
-                    <fieldset>
-                    <tr>
-                        <td>{{usfo}}</td>
-                    </tr>
+                        <fieldset>
+                            <tr>
+                                <td>{{usfo}}</td>
+                            </tr>
 
-                    <tr>
-                        <td>{{pfo}}</td>
-                    </tr>
+                            <tr>
+                                <td>{{pfo}}</td>
+                            </tr>
 
-                    <tr>
-                        <td>
-                            <input type="submit" value="registration" class="btn btn-warning">
-                        </td>
-                    </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="registration" class="btn btn-warning">
+                                </td>
+                            </tr>
 
-                    <p class="link">Don't have an account</p>
+                            <p class="link">Don't have an account</p>
 
-                    <div class="lion">
-                        <a href=""><i class="fa-brands fa-facebook"></i></a>
-                        <a href=""><i class="fa-brands fa-square-twitter"></i></a>
-                        <a href=""><i class="fa-brands fa-google"></i></a>
-                        <a href=""><i class="fa-brands fa-square-instagram"></i></a>
-                        <iframe width="5" height="5" src="https://www.youtube.com/embed/wbkfuO0havc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-				    </div>
+                            <div class="lion">
+                                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                                <a href=""><i class="fa-brands fa-square-twitter"></i></a>
+                                <a href=""><i class="fa-brands fa-google"></i></a>
+                                <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                                <iframe width="5" height="5" src="https://www.youtube.com/embed/wbkfuO0havc"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
                     </table>
                 </div>
             </form>
         </div>
     </center>
 </body>
-    
-    {% endblock %}
 
-    
+{% endblock %}

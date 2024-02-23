@@ -10,6 +10,15 @@ from django.contrib.auth.decorators import login_required
 def dummy(request):
     return render (request,'dummy.html')
 
+
+
+def home(request):
+    if request.session.get('username'):
+        username=request.session.get('username')
+        d={'username':username}
+        return render(request,'home.html',d)
+    return render(request,'home.html')
+
     
 
 def registration(request):
@@ -21,9 +30,9 @@ def registration(request):
         pfd=ProfileForm(request.POST,request.FILES)
         
 # it checks userform & profileform valid or not
-        if usfd.is_valid() and pfd.is_valid():
+        if usfo.is_valid() and pfo.is_valid():
             NSUFO=usfd.save(commit=False)
-            submittedPassword=usfd.cleaned_data['password']
+            submittedPassword=usfd.cleaned_data['password'] #Cleaned_data is a dictionary, in that we store our data
             NSUFO.set_password(submittedPassword)
             NSUFO.save()
             NSPO=pfd.save(commit=False)
@@ -41,23 +50,15 @@ def registration(request):
 
 
 
-def home(request):
-    if request.session.get('username'):
-        username=request.session.get('username')
-        d={'username':username}
-        return render(request,'home.html',d)
-    return render(request,'home.html')
-
-
 def user_login(request):
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password']
         AUO=authenticate(username=username,password=password)
         if AUO:
-            if AUO.is_active:
+            if AUO.is_active: # is_active is used to check whether the user is an active user or not
                 login(request,AUO)
-                request.session['username']=username
+                request.session['username']=username # Session means it stores user's data in a file for specific time
                 return HttpResponseRedirect(reverse('home'))
             else:
                 return HttpResponse('Not a Active User')
@@ -95,3 +96,23 @@ def reset_password(request):
         else:
             return HttpResponse('invalid data')
     return render(request,'reset_password.html')
+
+
+@login_required
+def display_details(request):
+    username=request.session.get('username')
+    UO=User.objects.get(username=username)
+    PO=Profile.objects.get(username=UO)
+    d={'UO':UO,'PO':PO}
+    return render(request,'display_details.html',d)
+
+
+def mobiles(request):
+    return render(request,'mobiles.html')
+
+def electronics(request):
+    return render(request,'electronics.html')
+   
+   
+def today_deals(request):
+    return render(request,'today_deals.html')

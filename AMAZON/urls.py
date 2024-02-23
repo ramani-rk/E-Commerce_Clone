@@ -27,4 +27,8 @@ urlpatterns = [
     path('change_password/',change_password,name='change_password'),
     path('reset_password/',reset_password,name='reset_password'),
     path('home/',home,name='home'),
+    path('today_deals/',today_deals,name='today_deals'),
+    path('mobiles/',mobiles,name='mobiles'),
+    path('display_details/',display_details,name='display_details'),
+    path('electronics/',electronics,name='electronics'),
 ]

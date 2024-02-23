@@ -1,0 +1,23 @@
+{% extends 'dummy.html' %}
+{% block title %}
+<title>Details Page</title>
+{% endblock %}
+
+
+{% block body_block %}
+<center>
+    <img src="{{PO.profile_picture.url}}" alt="nothing" srcset="" height="200px" width="300px" style="border-radius: 50%; border: 3px dotted green;">
+    <h1> Name :{{UO.username}}</h1>
+    <h1>Email:{{UO.email}}</h1>
+    <h1>Address: {{PO.address}}</h1>
+
+</center>
+
+<style>
+    body 
+    {
+        background-image: url('https://c4.wallpaperflare.com/wallpaper/277/57/171/macbook-pro-dark-background-orange-stock-wallpaper-preview.jpg');
+        color: ghostwhite;
+    }
+</style>
+{% endblock %}
