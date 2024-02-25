@@ -3,9 +3,13 @@ from django.shortcuts import render
 # Create your views here.
 
 from app.forms import *
-from django.http import HttpResponse,HttpResponseRedirect
-from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse,HttpResponseRedirect #HR used for sending response #HR-redirect used for takeback the URL to the particular Page
+from django.core.mail import send_mail # its used for sending the sending the mail
+from django.contrib.auth import authenticate,login,logout #login & logout is used for user login & logout purpose
+from django.contrib.auth.decorators import login_required # when user wants any changes after login, that time we must use login_required
+from django.urls import reverse
+
+
 
 def dummy(request):
     return render (request,'dummy.html')
@@ -26,16 +30,16 @@ def registration(request):
 
 # this condition is helps to check POST method and accept the image files.
     if request.method=='POST' and request.FILES:
-        usfd=UserForm(request.POST)
-        pfd=ProfileForm(request.POST,request.FILES)
+        usfo=UserForm(request.POST)
+        pfo=ProfileForm(request.POST,request.FILES)
         
 # it checks userform & profileform valid or not
         if usfo.is_valid() and pfo.is_valid():
-            NSUFO=usfd.save(commit=False)
-            submittedPassword=usfd.cleaned_data['password'] #Cleaned_data is a dictionary, in that we store our data
+            NSUFO=usfo.save(commit=False)
+            submittedPassword=usfo.cleaned_data['password'] #Cleaned_data is a dictionary, in that we store our data
             NSUFO.set_password(submittedPassword)
             NSUFO.save()
-            NSPO=pfd.save(commit=False)
+            NSPO=pfo.save(commit=False)
             NSPO.username=NSUFO
             NSPO.save()
             
@@ -110,9 +114,30 @@ def display_details(request):
 def mobiles(request):
     return render(request,'mobiles.html')
 
+
 def electronics(request):
     return render(request,'electronics.html')
    
    
 def today_deals(request):
     return render(request,'today_deals.html')
+
+
+def amazon_mini_tv(request):
+    return render(request,'amazon_mini_tv.html')
+
+
+def homee(request):
+    return render(request,'homee.html')
+
+
+def webseries(request):
+    return render(request,'webseries.html')
+
+
+def short_films(request):
+    return render(request,'short_films.html')
+
+
+def comedy(request):
+    return render(request,'comedy.html')

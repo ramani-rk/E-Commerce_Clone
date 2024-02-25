@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +33,13 @@ urlpatterns = [
     path('mobiles/',mobiles,name='mobiles'),
     path('display_details/',display_details,name='display_details'),
     path('electronics/',electronics,name='electronics'),
-]
+    path('amazon_mini_tv/',amazon_mini_tv,name='amazon_mini_tv'),
+    path('homee/',homee,name='homee'),
+    path('comedy/',comedy,name='comedy'),
+    path('webseries/',webseries,name='webseries'),
+    path('short_films/',short_films,name='short_films'),
+    
+
+
+
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

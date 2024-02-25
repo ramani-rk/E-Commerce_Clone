@@ -6,10 +6,20 @@
 <style>
     .box
     {
-        height: 500px;
+        height: 400px;
         width: 450px;
         margin-top:20px;
-       
+    }
+    h2
+    {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    }
+
+    body
+    {
+        background-image: url("{% static 'images/dark.gif' %}");   
+        background-repeat: no-repeat;
+        background-size:cover;
     }
     #input
     {
@@ -26,15 +36,12 @@
         margin-top: 35px;
         margin-left: 20px;
     }
-    body
-    {
-        background-image: url("{% static 'images/loading.gif' %}"  );
-    }
+    
     #button
     {
         margin-top: 15px;
         padding:8px;
-        width:105px;
+        width:100px;
         border-radius: 100%;
         border: none;
         margin-left: 15px;
@@ -66,7 +73,7 @@
         <span class="borderLine"></span>
         <form method="POST">
             {% csrf_token %}
-            <h2 style="color: whitesmoke;">Login Form</h2>
+                <h2 style="color: whitesmoke;">Login Form</h2>
             <div id="input">
                 <div class="inputBox">
                     <span><b>Username</b></span>
@@ -80,7 +87,7 @@
                 </div>
                 <div class="links">
                     <a href="">Forget Password</a><br>
-                    <a href="{% url 'reset_password' %}">reset_password</a>
+                    <a href="{% url 'reset_password' %}">Reset Password</a>
                 </div>
             </div>
             
