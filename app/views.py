@@ -7,14 +7,11 @@ from django.http import HttpResponse,HttpResponseRedirect #HR used for sending r
 from django.core.mail import send_mail # its used for sending the sending the mail
 from django.contrib.auth import authenticate,login,logout #login & logout is used for user login & logout purpose
 from django.contrib.auth.decorators import login_required # when user wants any changes after login, that time we must use login_required
-from django.urls import reverse
-
+from django.urls import reverse #it will carry the data & send to the another page
 
 
 def dummy(request):
     return render (request,'dummy.html')
-
-
 
 def home(request):
     if request.session.get('username'):

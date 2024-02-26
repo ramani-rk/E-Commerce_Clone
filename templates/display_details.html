@@ -6,10 +6,10 @@
 
 {% block body_block %}
 <center>
-    <img src="{{PO.profile_picture.url}}" alt="nothing" srcset="" height="200px" width="300px" style="border-radius: 50%; border: 3px dotted green;">
-    <h1> Name :{{UO.username}}</h1>
-    <h1>Email:{{UO.email}}</h1>
-    <h1>Address: {{PO.address}}</h1>
+    <img src="{{PO.profile_picture.url}}" alt="nothing" srcset="" height="300px" width="300px" style="border-radius: 50%;">
+    <h1>Name :<b>{{UO.username}}</b></h1>
+    <h1>Email:<b>{{UO.email}}</b></h1>
+    <h1>Address:<b>{{PO.address}}</b></h1>
 
 </center>
 
@@ -18,6 +18,10 @@
     {
         background-image: url('https://c4.wallpaperflare.com/wallpaper/277/57/171/macbook-pro-dark-background-orange-stock-wallpaper-preview.jpg');
         color: ghostwhite;
+    }
+    h1
+    {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 </style>
 {% endblock %}
